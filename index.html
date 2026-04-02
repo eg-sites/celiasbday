@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff8f4" />
+  <meta name="description" content="Confirmação de presença — Aniversário da Célia Bizerra João" />
+
+  <!-- 🔧 Título editável em config.js → pageTitle -->
+  <title>Célia Bizerra João · Birthday Experience</title>
+
+  <!-- Google Fonts: Cormorant Garamond (serif) + Great Vibes (script) + Jost (sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     DECORAÇÃO GLOBAL — Partículas / Pó de estrelas
+     ══════════════════════════════════════════ -->
+<div class="particles" id="particles" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     LOADER — Ecrã de entrada elegante
+     ══════════════════════════════════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__bow">
+    <img src="assets/ornament-bow.svg" alt="" loading="eager" />
+  </div>
+  <p class="loader__text">um momento...</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     WRAPPER PRINCIPAL — todas as cenas
+     ══════════════════════════════════════════ -->
+<main class="app" id="app">
+
+  <!-- ─────────────────────────────────────────
+       CENA 1 — WELCOME
+       ───────────────────────────────────────── -->
+  <section class="scene scene--welcome active" id="scene-welcome" aria-label="Boas-vindas">
+    <div class="scene__inner">
+
+      <!-- Frame orgânico desenhado via JS -->
+      <div class="frame-container" id="welcome-card">
+        <svg class="frame-svg" id="frame-welcome" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path class="frame-path frame-path--animate" id="frame-path-welcome" fill="none" stroke="#b20d18" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+
+        <div class="frame-content">
+          <div class="corner-ornament corner-ornament--bow" aria-hidden="true">
+            <img src="assets/ornament-bow.svg" alt="" loading="eager" />
+          </div>
+
+          <div class="corner-ornament corner-ornament--martini" aria-hidden="true">
+            <img src="assets/ornament-martini.svg" alt="" loading="eager" />
+          </div>
+
+          <!-- Eyebrow -->
+          <p class="eyebrow reveal-up" id="w-eyebrow">Confirmação Final</p>
+          <p class="theme-script reveal-up" id="w-theme">a tini bit older</p>
+
+          <!-- Título principal -->
+          <h1 class="welcome-title reveal-up" id="w-title">
+            Antes de revelar todos os detalhes desta celebração...
+          </h1>
+
+          <!-- Separador decorativo -->
+          <div class="divider reveal-up" aria-hidden="true">
+            <span></span><span class="divider__heart">♥</span><span></span>
+          </div>
+
+          <!-- Mensagem -->
+          <p class="welcome-message reveal-up" id="w-message">
+            Como combinado, peço-lhe que confirme a sua presença final. O espaço e o horário do jantar serão revelados mediante confirmação.
+          </p>
+
+          <!-- Sub-mensagem -->
+          <p class="welcome-submessage reveal-up" id="w-submessage"></p>
+
+          <div class="field field--welcome reveal-up">
+            <label class="field__label field__label--center" for="welcome-name" id="welcome-name-label">O teu nome</label>
+            <input
+              class="field__input field__input--welcome"
+              type="text"
+              id="welcome-name"
+              name="welcomeName"
+              autocomplete="name"
+              placeholder="Escreve aqui o teu nome"
+              maxlength="80"
+            />
+            <span class="field__error field__error--center" id="welcome-name-error" role="alert"></span>
+          </div>
+
+          <!-- Botões -->
+          <div class="btn-group reveal-up">
+            <button class="btn btn--primary" id="btn-yes" aria-label="Confirmar presença: Sim, vou">
+              Sim, vou
+            </button>
+            <button class="btn btn--ghost" id="btn-no" aria-label="Recusar presença: Não vou">
+              Não vou
+            </button>
+          </div>
+        </div>
+      </div><!-- /frame-container -->
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 2 — FORMULÁRIO JANTAR (quem diz "Sim")
+       ───────────────────────────────────────── -->
+  <section class="scene scene--form" id="scene-dinner-form" aria-label="Formulário de confirmação">
+    <div class="scene__inner">
+      <div class="form-card">
+
+        <div class="bow-top bow-top--small" aria-hidden="true">
+          <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M60,38 C48,28 22,12 10,18 C4,21 4,29 10,31 C22,37 48,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C72,28 98,12 110,18 C116,21 116,29 110,31 C98,37 72,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C48,48 22,64 10,58 C4,55 4,47 10,45 C22,39 48,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C72,48 98,64 110,58 C116,55 116,47 110,45 C98,39 72,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="60" cy="38" r="4" stroke="#b20d18" stroke-width="1.6" fill="#fce8f0"/>
+            <path d="M57,43 C52,55 46,65 42,74" stroke="#b20d18" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M63,43 C68,55 74,65 78,74" stroke="#b20d18" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <p class="eyebrow" id="dinner-form-eyebrow">Só mais uma perguntinha...</p>
+        <h2 class="scene-title" id="dinner-form-title">Vens com acompanhante?</h2>
+
+        <form id="dinner-form" novalidate>
+          <!-- Acompanhantes -->
+          <div class="field field--toggle">
+            <p class="field__label field__label--center" id="form-companion-question">Vais com acompanhante?</p>
+            <div class="toggle-group" role="group" aria-label="Acompanhantes no jantar">
+              <button type="button" class="toggle-btn active" id="companion-no" data-value="no">Não</button>
+              <button type="button" class="toggle-btn" id="companion-yes" data-value="yes">Sim</button>
+            </div>
+          </div>
+
+          <!-- Campos de acompanhantes (max 3, adicionados dinamicamente) -->
+          <div class="companions-wrap" id="dinner-companions" aria-live="polite" hidden>
+            <div class="companion-list" id="dinner-companion-list"></div>
+            <button type="button" class="btn btn--add" id="add-dinner-companion" aria-label="Adicionar acompanhante ao jantar">
+              + Adicionar acompanhante
+            </button>
+          </div>
+          <p class="field__error field__error--center" id="dinner-companion-error" role="alert"></p>
+
+          <button type="submit" class="btn btn--primary btn--full">
+            Confirmar presença ✦
+          </button>
+        </form>
+
+        <p class="form-note" id="dinner-form-note">Os detalhes do jantar serão revelados após confirmação.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 3 — REVEAL JANTAR
+       ───────────────────────────────────────── -->
+  <section class="scene scene--reveal" id="scene-dinner-reveal" aria-label="Detalhes do jantar">
+    <div class="scene__inner">
+
+      <!-- Mensagem de boas-vindas premium -->
+      <div class="reveal-message reveal-up">
+        <div class="bow-top" aria-hidden="true">
+          <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M60,38 C48,28 22,12 10,18 C4,21 4,29 10,31 C22,37 48,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round" fill="#fce8f0"/>
+            <path d="M60,38 C72,28 98,12 110,18 C116,21 116,29 110,31 C98,37 72,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round" fill="#fce8f0"/>
+            <path d="M60,38 C48,48 22,64 10,58 C4,55 4,47 10,45 C22,39 48,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round" fill="#fce8f0"/>
+            <path d="M60,38 C72,48 98,64 110,58 C116,55 116,47 110,45 C98,39 72,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round" fill="#fce8f0"/>
+            <ellipse cx="60" cy="38" rx="5" ry="5" stroke="#b20d18" stroke-width="1.8" fill="#f6d0dd"/>
+            <path d="M56,43 C51,56 44,66 40,76" stroke="#b20d18" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M64,43 C69,56 76,66 80,76" stroke="#b20d18" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <h2 class="reveal-title" id="reveal-dinner-title">Que bom ter-te comigo.</h2>
+        <p class="reveal-subtitle" id="reveal-dinner-msg">
+          A tua presença vai tornar esta celebração ainda mais especial.
+        </p>
+      </div>
+
+      <!-- Cartão premium do jantar -->
+      <div class="detail-card reveal-up" id="dinner-detail-card">
+        <div class="detail-card__frame">
+          <svg class="frame-svg frame-svg--card" id="frame-dinner" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path class="frame-path frame-path--glow" id="frame-path-dinner" fill="none" stroke="#b20d18" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+
+          <div class="detail-card__inner">
+            <div class="detail-card__media" id="dinner-image-wrap" hidden>
+              <img id="dinner-image" src="" alt="" loading="lazy" />
+            </div>
+            <p class="detail-card__eyebrow" id="detail-dinner-label">Jantar de Aniversário</p>
+            <h3 class="detail-card__venue" id="detail-dinner-venue">NOME DO RESTAURANTE</h3>
+
+            <div class="detail-rows">
+              <div class="detail-row">
+                <span class="detail-icon">✦</span>
+                <span id="detail-dinner-date">18 de Abril de 2026</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-icon">◷</span>
+                <span id="detail-dinner-time">20h00</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-icon">⌖</span>
+                <span id="detail-dinner-address">Morada do Restaurante</span>
+              </div>
+            </div>
+
+            <div class="dress-code-badge">
+              <span class="dress-code-badge__label">Dress Code</span>
+              <span class="dress-code-badge__value">Grown &amp; Sexy</span>
+            </div>
+
+            <a class="btn btn--outline btn--map" id="link-dinner-maps" href="#" target="_blank" rel="noopener noreferrer">
+              Ver no Google Maps ↗
+            </a>
+
+            <p class="detail-card__note" id="detail-dinner-note">
+              Chega com energia boa e no mood certo para uma noite bonita e memorável.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão para avançar para a pergunta do after -->
+      <div class="next-wrap reveal-up">
+        <p class="next-lead" id="continue-lead">calma, ainda há mais</p>
+        <button class="btn btn--primary btn--continue" id="btn-to-after-question">Continuar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 4 — AFTER QUESTION (fundo preto)
+       ───────────────────────────────────────── -->
+  <section class="scene scene--dark" id="scene-after-question" aria-label="Pergunta sobre o after">
+    <div class="scene__inner scene__inner--centered">
+      <div class="dark-content">
+        <div class="glow-orb" aria-hidden="true"></div>
+        <p class="eyebrow eyebrow--light reveal-up" id="after-q-eyebrow">Depois do jantar...</p>
+        <h2 class="dark-title reveal-up" id="after-q-title">
+          vais ao <em>after</em>?
+        </h2>
+        <p class="dark-subtitle reveal-up" id="after-q-note">A noite pode não acabar já.</p>
+        <div class="btn-group btn-group--centered btn-group--equal reveal-up">
+          <button class="btn btn--light" id="btn-after-yes">Sim</button>
+          <button class="btn btn--ghost-light" id="btn-after-no">Não</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 5 — AFTER REVEAL (foto kid)
+       ───────────────────────────────────────── -->
+  <section class="scene scene--after" id="scene-after-reveal" aria-label="Detalhes do after">
+    <div class="scene__inner">
+
+      <!-- Colagem com foto kid -->
+      <div class="kid-collage reveal-up">
+        <div class="kid-collage__frame">
+          <img
+            id="kid-photo"
+            src="assets/kid-after.jpg"
+            alt="Surpresa do after"
+            class="kid-collage__img"
+            loading="lazy"
+            onerror="this.style.display='none';document.getElementById('kid-placeholder').style.display='flex';"
+          />
+          <!-- Placeholder se não houver foto -->
+          <div class="kid-collage__placeholder" id="kid-placeholder" style="display:none;">
+            <span>📸</span>
+            <p>Coloca aqui<br>a foto kid</p>
+          </div>
+          <div class="kid-collage__badge">kid energy ✦</div>
+        </div>
+      </div>
+
+      <!-- Título do after -->
+      <div class="reveal-message reveal-up">
+        <h2 class="reveal-title" id="after-reveal-title">Então sim... agora posso contar-te.</h2>
+      </div>
+
+      <!-- Cartão after -->
+      <div class="detail-card detail-card--after reveal-up" id="after-detail-card">
+        <div class="detail-card__frame detail-card__frame--dark">
+          <svg class="frame-svg frame-svg--card" id="frame-after" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path class="frame-path" id="frame-path-after" fill="none" stroke="#e07090" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <div class="detail-card__inner">
+            <p class="detail-card__eyebrow" id="detail-after-label">After Party</p>
+            <h3 class="detail-card__venue" id="detail-after-venue">NOME DO ESPAÇO DO AFTER</h3>
+
+            <div class="detail-rows">
+              <div class="detail-row">
+                <span class="detail-icon">✦</span>
+                <span id="detail-after-date">19 de Abril de 2026</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-icon">◷</span>
+                <span id="detail-after-time">HORÁRIO</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-icon">⌖</span>
+                <span id="detail-after-address">Morada do After</span>
+              </div>
+            </div>
+
+            <a class="btn btn--outline btn--map btn--map-dark" id="link-after-maps" href="#" target="_blank" rel="noopener noreferrer">
+              Ver no Google Maps ↗
+            </a>
+            <p class="detail-card__note" id="detail-after-note">
+              Mais descontraído, mais ousado, mais festa. Grown &amp; Sexy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário acompanhantes after -->
+      <div class="after-companions-wrap reveal-up" id="after-companions-wrap">
+        <p class="field__label field__label--center field__label--light" id="after-companion-question">Vais com acompanhante(s) ao after?</p>
+        <div class="toggle-group" role="group" aria-label="Acompanhantes no after" style="justify-content:center; margin-bottom:1rem;">
+          <button type="button" class="toggle-btn active" id="after-companion-no" data-value="no">Não</button>
+          <button type="button" class="toggle-btn" id="after-companion-yes" data-value="yes">Sim</button>
+        </div>
+        <div class="after-mode-wrap" id="after-mode-wrap" hidden>
+          <button type="button" class="toggle-btn toggle-btn--compact active" id="after-mode-same">Os mesmos do jantar</button>
+          <button type="button" class="toggle-btn toggle-btn--compact" id="after-mode-other">Acrescentar outros acompanhantes</button>
+        </div>
+        <div class="companions-wrap" id="after-companions" aria-live="polite" hidden>
+          <div class="companion-list" id="after-companion-list"></div>
+          <button type="button" class="btn btn--add" id="add-after-companion">+ Adicionar acompanhante</button>
+        </div>
+        <p class="field__error field__error--center field__error--light" id="after-companion-error" role="alert"></p>
+        <button class="btn btn--primary btn--full" id="btn-submit-after" style="margin-top:1.5rem;">
+          Confirmar tudo ✦
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 5B — AFTER DECLINED (só jantar)
+       ───────────────────────────────────────── -->
+  <section class="scene scene--close" id="scene-after-declined" aria-label="Fecho — sem after">
+    <div class="scene__inner scene__inner--centered">
+      <div class="close-content">
+        <div class="bow-top" aria-hidden="true">
+          <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M60,38 C48,28 22,12 10,18 C4,21 4,29 10,31 C22,37 48,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C72,28 98,12 110,18 C116,21 116,29 110,31 C98,37 72,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C48,48 22,64 10,58 C4,55 4,47 10,45 C22,39 48,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C72,48 98,64 110,58 C116,55 116,47 110,45 C98,39 72,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="60" cy="38" r="4" stroke="#b20d18" stroke-width="1.8" fill="#fce8f0"/>
+            <path d="M57,43 C52,55 46,65 42,74" stroke="#b20d18" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M63,43 C68,55 74,65 78,74" stroke="#b20d18" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="close-title" id="close-title">Obrigada por confirmares.</h2>
+        <p class="close-message" id="close-message">Mal posso esperar por celebrar contigo. Vemo-nos em breve.</p>
+        <div class="sparkle-deco" aria-hidden="true">✦ ✦ ✦</div>
+        <!-- Vai mostrar o botão de cartão final aqui -->
+        <button class="btn btn--primary" id="btn-show-card" style="margin-top:2rem;">
+          Ver o meu convite ✦
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 2B — DECLINED DINNER
+       ───────────────────────────────────────── -->
+  <section class="scene" id="scene-declined-dinner" aria-label="Resposta — sem jantar">
+    <div class="scene__inner scene__inner--centered">
+      <div class="declined-content">
+        <div class="bow-top" aria-hidden="true">
+          <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M60,38 C48,28 22,12 10,18 C4,21 4,29 10,31 C22,37 48,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C72,28 98,12 110,18 C116,21 116,29 110,31 C98,37 72,36 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C48,48 22,64 10,58 C4,55 4,47 10,45 C22,39 48,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M60,38 C72,48 98,64 110,58 C116,55 116,47 110,45 C98,39 72,40 60,38" stroke="#b20d18" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="60" cy="38" r="4" stroke="#b20d18" stroke-width="1.8" fill="#fce8f0"/>
+            <path d="M57,43 C52,55 46,65 42,74" stroke="#b20d18" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M63,43 C68,55 74,65 78,74" stroke="#b20d18" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="scene-title reveal-up" id="declined-title">Que pena...</h2>
+        <p class="scene-message reveal-up" id="declined-message">
+          Gostava muito de te ter comigo neste jantar. Mas obrigada por me responderes — isso também é um gesto bonito.
+        </p>
+        <p class="kiss-cheese reveal-up">Um beijo e um queijo. 🧀💋</p>
+        <div class="reveal-up" style="margin-top: 2rem;">
+          <button class="btn btn--ghost" id="btn-to-after-nodinner">
+            mas espera... continua ↓
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 3B — AFTER QUESTION (não vai ao jantar) — FUNDO PRETO
+       ───────────────────────────────────────── -->
+  <section class="scene scene--dark" id="scene-after-question-nodinner" aria-label="Pergunta after — sem jantar">
+    <div class="scene__inner scene__inner--centered">
+      <div class="dark-content">
+        <div class="glow-orb" aria-hidden="true"></div>
+        <p class="eyebrow eyebrow--light reveal-up">Mesmo não indo ao jantar...</p>
+        <h2 class="dark-title reveal-up">queres aparecer no <em>after</em>?</h2>
+        <div class="btn-group btn-group--centered btn-group--equal reveal-up">
+          <button class="btn btn--light" id="btn-after-yes-nodinner">Sim</button>
+          <button class="btn btn--ghost-light" id="btn-after-no-nodinner">Não</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA 4C — FINAL "Beijo e Queijo"
+       ───────────────────────────────────────── -->
+  <section class="scene scene--final-no" id="scene-final-no" aria-label="Fecho final">
+    <div class="scene__inner scene__inner--centered">
+      <div class="final-no-content">
+        <div class="cheese-animation" aria-hidden="true">
+          <span class="cheese-emoji">🧀</span>
+          <span class="kiss-emoji">💋</span>
+        </div>
+        <h2 class="scene-title" id="final-no-title">Um beijo e um queijo</h2>
+        <p class="scene-message" id="final-no-message">
+          Mesmo não estando presente, obrigada pelo carinho e pela resposta. Sentes a minha falta — eu sei.
+        </p>
+        <div class="confetti-row" aria-hidden="true">
+          <span>✦</span><span>♥</span><span>✦</span><span>♥</span><span>✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────
+       CENA FINAL — CARTÃO PERSONALIZADO (screenshot)
+       ───────────────────────────────────────── -->
+  <section class="scene scene--final-card" id="scene-final-card" aria-label="Convite personalizado">
+    <div class="scene__inner">
+
+      <p class="screenshot-hint reveal-up" id="screenshot-hint">
+        📸 Guarda este convite — faz screenshot para o teres sempre à mão.
+      </p>
+
+      <!-- Cartão para screenshot -->
+      <div class="final-invite-card reveal-up" id="final-invite-card">
+        <div class="corner-ornament corner-ornament--bow corner-ornament--final-bow" aria-hidden="true">
+          <img src="assets/ornament-bow.svg" alt="" loading="lazy" />
+        </div>
+        <div class="corner-ornament corner-ornament--martini corner-ornament--final-martini" aria-hidden="true">
+          <img src="assets/ornament-martini.svg" alt="" loading="lazy" />
+        </div>
+
+        <svg class="frame-svg frame-svg--card" id="frame-final-card" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path class="frame-path frame-path--glow" id="frame-path-final" fill="none" stroke="#b20d18" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+
+        <p class="fic-eyebrow" id="fic-eyebrow">You are invited to</p>
+        <h2 class="fic-name" id="fic-title">Célia's Day</h2>
+
+        <!-- Nome personalizado -->
+        <p class="fic-guest-name" id="fic-guest-name"></p>
+        <p class="fic-companions" id="fic-companions-text"></p>
+
+        <div class="fic-divider" aria-hidden="true">♥</div>
+
+        <!-- Bloco jantar -->
+        <div class="fic-block" id="fic-dinner-block" hidden>
+          <p class="fic-block__label">Jantar de Aniversário</p>
+          <p class="fic-block__venue" id="fic-dinner-venue">—</p>
+          <p class="fic-block__detail" id="fic-dinner-date">—</p>
+          <p class="fic-block__detail" id="fic-dinner-time">—</p>
+          <p class="fic-block__address" id="fic-dinner-address">—</p>
+          <p class="fic-block__companions" id="fic-dinner-companions" hidden></p>
+        </div>
+
+        <!-- Bloco after (aparece condicionalmente) -->
+        <div class="fic-block fic-block--after" id="fic-after-block" hidden>
+          <p class="fic-block__label fic-block__label--after">After Party</p>
+          <p class="fic-block__venue fic-block__venue--after" id="fic-after-venue">—</p>
+          <p class="fic-block__detail" id="fic-after-date">—</p>
+          <p class="fic-block__detail" id="fic-after-time">—</p>
+          <p class="fic-block__address" id="fic-after-address">—</p>
+          <p class="fic-block__companions" id="fic-after-companions" hidden></p>
+        </div>
+
+        <div class="fic-divider fic-divider--bottom" aria-hidden="true">✦ Grown &amp; Sexy ✦</div>
+
+        <p class="fic-signature">Com amor, Célia ♥</p>
+      </div><!-- /final-invite-card -->
+
+      <p class="final-message reveal-up" id="final-message-text">
+        Mal posso esperar por celebrar contigo. Vemo-nos em breve, linda.
+      </p>
+
+    </div>
+  </section>
+
+</main><!-- /app -->
+
+
+<!-- ─── Loading overlay ─── -->
+<div class="submission-overlay" id="submission-overlay" hidden aria-live="polite" role="status">
+  <div class="submission-overlay__inner">
+    <div class="spin-bow" aria-hidden="true">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="20" cy="20" r="16" stroke="#b20d18" stroke-width="2" stroke-dasharray="80 20"/>
+      </svg>
+    </div>
+    <p>um momento...</p>
+  </div>
+</div>
+
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
