@@ -102,7 +102,7 @@ const SITE_CONFIG = {
 
   // ── INTEGRAÇÃO GOOGLE ────────────────────────────────────
   // 🔧 COLOCAR AQUI a URL do Web App do Google Apps Script após publicação
-  googleAppsScriptUrl: "COLOCAR_AQUI_A_URL_DO_WEB_APP",
+  googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbwffb57NouNw4WBrxQSUJmX3WZMkTu5ZBbHWIvr3v7Y3Wpsu0ttW8raZ0QHxXDpUnxJ/exec",
 
   // ── ADMIN ────────────────────────────────────────────────
   // 🔧 Chave de acesso à página admin — trocar por algo seguro
