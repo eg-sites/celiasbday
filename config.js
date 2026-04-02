@@ -85,7 +85,7 @@ const SITE_CONFIG = {
   finalDinnerOnlyMsg:   "Presença confirmada para o jantar. Vai ser especial ter-te comigo.",
   finalBothMsg:         "Mal posso esperar por celebrar contigo. Vai ser uma noite memorável.",
   finalNoTitle:         "Um beijo e um queijo",
-  finalNoMessage:       "Mesmo não estando presente, obrigada pelo carinho e pela resposta. Sentes a minha falta — eu sei.",
+  finalNoMessage:       "Mesmo não estando presente, obrigada pelo carinho e pela resposta.",
 
   // ── CARTÃO FINAL (screenshot) ────────────────────────────
   cardScreenshotNote:  "Guarda este convite — faz screenshot para o teres sempre à mão.",
