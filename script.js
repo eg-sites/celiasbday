@@ -755,3 +755,18 @@ if (document.readyState === 'loading') {
     hideLoader();
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const inviteId = params.get('guest') || 'direct';
+  const guestNameFromUrl = params.get('name') || '';
+
+  const welcomeNameInput = document.getElementById('welcome-name');
+
+  if (welcomeNameInput && guestNameFromUrl) {
+    welcomeNameInput.value = guestNameFromUrl;
+  }
+
+  console.log('inviteId:', inviteId);
+  console.log('guestNameFromUrl:', guestNameFromUrl);
+});
